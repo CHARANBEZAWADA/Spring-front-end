@@ -16,7 +16,7 @@ const Product = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/product/${id}`
+          `http://localhost:8082/api/product/${id}`
         );
         setProduct(response.data);
         if (response.data.imageName) {
@@ -29,7 +29,7 @@ const Product = () => {
 
     const fetchImage = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/product/${id}/image`,
+        `http://localhost:8082/api/product/${id}`,
         { responseType: "blob" }
       );
       setImageUrl(URL.createObjectURL(response.data));
@@ -40,7 +40,7 @@ const Product = () => {
 
   const deleteProduct = async () => {
     try {
-      await axios.delete(`http://localhost:8080/api/product/${id}`);
+      await axios.delete(`http://localhost:8082/api/product/${id}`);
       removeFromCart(id);
       console.log("Product deleted successfully");
       alert("Product deleted successfully");
@@ -82,11 +82,11 @@ const Product = () => {
             <span style={{ fontSize: "1.2rem", fontWeight: 'lighter' }}>
               {product.category}
             </span>
-            <p className="release-date" style={{ marginBottom: "2rem" }}>
+            {/* <p className="release-date" style={{ marginBottom: "2rem" }}>
               
               <h6>Listed : <span> <i> {new Date(product.releaseDate).toLocaleDateString()}</i></span></h6>
               {/* <i> {new Date(product.releaseDate).toLocaleDateString()}</i> */}
-            </p>
+            {/* </p> */} 
             </div>
             
            
@@ -100,27 +100,9 @@ const Product = () => {
 
           <div className="product-price">
             <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
-              {"$" + product.price}
+              {"₹"+product.price}
             </span>
-            <button
-              className={`cart-btn ${
-                !product.productAvailable ? "disabled-btn" : ""
-              }`}
-              onClick={handlAddToCart}
-              disabled={!product.productAvailable}
-              style={{
-                padding: "1rem 2rem",
-                fontSize: "1rem",
-                backgroundColor: "#007bff",
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                marginBottom: "1rem",
-              }}
-            >
-              {product.productAvailable ? "Add to cart" : "Out of Stock"}
-            </button>
+            
             <h6 style={{ marginBottom: "1rem" }}>
               Stock Available :{" "}
               <i style={{ color: "green", fontWeight: "bold" }}>

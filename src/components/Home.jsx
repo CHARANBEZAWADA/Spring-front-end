@@ -23,7 +23,7 @@ const Home = ({ selectedCategory }) => {
           data.map(async (product) => {
             try {
               const response = await axios.get(
-                `http://localhost:8080/api/product/${product.id}/image`,
+                `http://localhost:8082/api/product`,
                 { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);
@@ -52,7 +52,7 @@ const Home = ({ selectedCategory }) => {
   if (isError) {
     return (
       <h2 className="text-center" style={{ padding: "18rem" }}>
-      <img src={unplugged} alt="Error" style={{ width: '100px', height: '100px' }}/>
+      {/* <img src={unplugged} alt="Error" style={{ width: '100px', height: '100px' }}/> */}
       </h2>
     );
   }
@@ -110,7 +110,7 @@ const Home = ({ selectedCategory }) => {
                   to={`/product/${id}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <img
+                  {/* <img
                     src={imageUrl}
                     alt={name}
                     style={{
@@ -121,7 +121,7 @@ const Home = ({ selectedCategory }) => {
                       margin: "0",
                       borderRadius: "10px 10px 10px 10px", 
                     }}
-                  />
+                  /> */}
                   <div
                     className="card-body"
                     style={{
@@ -165,7 +165,7 @@ const Home = ({ selectedCategory }) => {
                       }}
                       disabled={!productAvailable}
                     >
-                      {productAvailable ? "Add to Cart" : "Out of Stock"}
+                      {productAvailable ? "Add to Cart" : "Available"}
                     </button> 
                   </div>
                 </Link>

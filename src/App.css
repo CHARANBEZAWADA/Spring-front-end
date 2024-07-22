@@ -332,10 +332,10 @@ padding-top: 100px;
   /* color: #86939E; */
   line-height: 24px;
 }
-.release-date{
+/* .release-date{
   font-weight: 300;
   
-}
+} */
 /* Cable Configuration */
 
 .cable-config a {
@@ -662,7 +662,7 @@ input:focus {
     width: 50%;
   }
 
-  .image,
+  
   .quantity,
   .description {
     width: 100%;
@@ -790,7 +790,7 @@ input:focus {
 
 .btn-hover.color-9 {
   background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-  box-shadow: 0 3px 5px 0 rgba(65, 132, 234, 0.75);
+  box-shadow: 0 3px 5px 0 rgba(35, 115, 234, 0.75);
 }
 
 /* .home-cart-price{
